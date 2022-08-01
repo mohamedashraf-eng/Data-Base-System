@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libUserInterface_lib.a CMakeFiles/UserInterface_lib.dir/src/UserInterface.c.obj
+C:\MinGW\bin\ranlib.exe libUserInterface_lib.a

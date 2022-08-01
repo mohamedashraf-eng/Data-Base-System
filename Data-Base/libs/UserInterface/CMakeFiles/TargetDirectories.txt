@@ -1,0 +1,3 @@
+H:/WX_CAREER/Projects/DataBase_Project/libs/UserInterface/CMakeFiles/UserInterface_lib.dir
+H:/WX_CAREER/Projects/DataBase_Project/libs/UserInterface/CMakeFiles/edit_cache.dir
+H:/WX_CAREER/Projects/DataBase_Project/libs/UserInterface/CMakeFiles/rebuild_cache.dir

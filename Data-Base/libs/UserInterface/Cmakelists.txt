@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(UserInterface)
+
+add_library(UserInterface_lib
+           src/UserInterface.c
+           inc/UserInterface.h)
+     
+## Library Validity.
+message(STATUS "ADDED UserInterface.lib")
