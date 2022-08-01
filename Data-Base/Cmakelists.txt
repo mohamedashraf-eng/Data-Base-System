@@ -1,0 +1,57 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(DataBaseSys)
+
+## Set the C standard requirements.
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED True)
+# Print the C_STD, C_STD_STATE:
+message(STATUS "C Standard: ${CMAKE_C_STANDARD}")
+message(STATUS "C Standard: ${CMAKE_C_STANDARD_REQUIRED}")
+
+## Print current source directory. 
+message("Current source directory: " ${CMAKE_SOURCE_DIR})
+
+## Set Inluded Source Files.
+set(SRC_FILES 
+    src/Global.c
+    main.c)
+
+# Print Included source files.
+message(STATUS "Included Source Files: " ${SRC_FILES})
+
+## Checkinf for main.c
+if(EXISTS ${CMAKE_SOURCE_DIR}/main.c)
+    message("main.c exists")
+else()
+    message(FATAL_ERROR "main.c doesn't exist")
+endif()
+
+## Add libraries
+set(LIBS  
+    LinkedLists_lib
+    Stack_lib
+    Queue_lib
+    Logs_lib
+    Hashing_lib
+    Stringer_lib
+    UserInterface_lib)
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/LinkedLists)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/Stack)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/Queue)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/Logs)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/Hashing)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/Stringer)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/UserInterface)
+
+# Print included libraries
+message(STATUS "Inlucded Libraries: " ${LIBS})
+
+## Set Exe File.
+add_executable(output ${SRC_FILES})
+
+target_include_directories(output PUBLIC inc/ )
+
+target_link_libraries(output PUBLIC ${LIBS})
