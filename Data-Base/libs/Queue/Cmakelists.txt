@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(Queue)
+
+add_library(Queue_lib
+           src/Queue.c
+           inc/Queue.h)
+           
+## Library Validity.
+message(STATUS "ADDED Queue.lib")
