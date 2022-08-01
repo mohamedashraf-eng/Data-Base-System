@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(Stringer)
+
+add_library(Stringer_lib
+           src/Stringer.c
+           inc/Stringer.h)
+           
+## Library Validity.
+message(STATUS "ADDED Stringer.lib")

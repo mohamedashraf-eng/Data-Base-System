@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libStringer_lib.a CMakeFiles/Stringer_lib.dir/src/Stringer.c.obj
+C:\MinGW\bin\ranlib.exe libStringer_lib.a
