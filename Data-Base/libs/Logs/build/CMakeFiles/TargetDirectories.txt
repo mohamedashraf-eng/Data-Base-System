@@ -1,0 +1,3 @@
+H:/WX_CAREER/Projects/DataBase_Project/libs/Logs/build/CMakeFiles/Logs_lib.dir
+H:/WX_CAREER/Projects/DataBase_Project/libs/Logs/build/CMakeFiles/edit_cache.dir
+H:/WX_CAREER/Projects/DataBase_Project/libs/Logs/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libLogs_lib.a CMakeFiles/Logs_lib.dir/src/Logs.c.obj
+C:\MinGW\bin\ranlib.exe libLogs_lib.a

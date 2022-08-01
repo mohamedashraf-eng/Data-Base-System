@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(Logs)
+
+add_library(Logs_lib
+           src/Logs.c
+           inc/Logs.h)
+           
+## Library Validity.
+message(STATUS "ADDED Logs.lib")
