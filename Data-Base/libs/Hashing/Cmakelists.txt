@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(Hashing)
+
+add_library(Hashing_lib
+           src/Hashing.c
+           inc/Hashing.h)
+           
+## Library Validity.
+message(STATUS "ADDED Hashing.lib")

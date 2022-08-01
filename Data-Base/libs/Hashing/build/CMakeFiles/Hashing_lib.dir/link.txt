@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libHashing_lib.a CMakeFiles/Hashing_lib.dir/src/Hashing.c.obj
+C:\MinGW\bin\ranlib.exe libHashing_lib.a
