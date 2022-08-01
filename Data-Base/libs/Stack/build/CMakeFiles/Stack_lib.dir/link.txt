@@ -1,0 +1,2 @@
+C:\MinGW\bin\ar.exe qc libStack_lib.a CMakeFiles/Stack_lib.dir/src/Stack.c.obj
+C:\MinGW\bin\ranlib.exe libStack_lib.a
