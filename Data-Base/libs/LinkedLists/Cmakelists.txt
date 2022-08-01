@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(LinkedLists)
+
+add_library(LinkedLists_lib
+           src/LinkedLists.c
+           inc/LinkedLists.h)
+           
+## Library Validity.
+message(STATUS "ADDED LinkedLists.lib")
