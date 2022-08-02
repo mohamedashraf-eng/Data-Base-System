@@ -35,15 +35,38 @@
 */
 
 
+
 /* 
 --------------------------------------------------------------------------------------------------
 !-                                     STRUCTS DECLARED                                          -
 --------------------------------------------------------------------------------------------------
 */
 
+struct Queue
+{
+    /** @defgroup Queue aramaters */
+    struct dllNode *Front;
+    struct dllNode *Rear;
+    uint32_t QueueSize;
+};
 
 /* 
 --------------------------------------------------------------------------------------------------
 !-                                     FUNCTIONS IMPLEMENTATION                                  -
 --------------------------------------------------------------------------------------------------
 */
+
+/** @defgroup main functions */
+struct Queue *Queue_Create(void);
+void Queue_Destroy(struct Queue *);
+
+/** @defgroup insertion functions */
+error_type Queue_enqueue(struct Queue *, struct PersonData *);
+struct PersonData *Queue_dequeue(struct Queue *);
+ 
+
+/** @defgroup sub functions */
+static struct dllNode *Queue_Front(struct Queue *);
+static error_type Queue_IsEmpty(struct Queue *);
+static uint32_t Queue_Size(struct Queue *);
+static error_type Queue_Validity(struct Queue *);
