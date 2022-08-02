@@ -44,17 +44,16 @@
  * @brief Struct containg the data that will be stored in data base.
  *
 */
+#pragma pack(1) /** @note packing set to 1 byte*/
 struct PersonData
 {   
     /** @defgroup System Variables */
     /** @brief Parsed as numerical */
-
     const uint64_t SystemID;
     const uint32_t SystemSalt;
     
     /** @defgroup Person Variables */
     /** @brief Parsed as string */
-
     const uint8_t *PersonFirstName;
     const uint8_t *PersonLastName;
     const uint8_t *PersonAge;
@@ -65,16 +64,13 @@ struct PersonData
     const uint8_t *PersonSalary;
     const uint8_t *PersonWorkHours;
 
-
     /** @todo ADD THINGS */
-    /** @defgroup SPR Variables */
+    /** @defgroup Person Flag Variables */
     /** @brief Parsed as numerical */ /** @note True/False */
 
-    //const uint8_t *NoSalary;
-    //const uint8_t *NoGifts;
-
-
-};
+    //const uint8_t NoSalary;
+    //const uint8_t NoGifts;
+}; 
 
 /* 
 --------------------------------------------------------------------------------------------------

@@ -77,7 +77,8 @@ CMakeFiles/LinkedLists_lib.dir/src/LinkedLists.c.obj: ../src/LinkedLists.c \
   C:/MinGW/include/oaidl.h \
   C:/MinGW/include/oleidl.h \
   C:/MinGW/include/math.h \
-  C:/MinGW/include/assert.h
+  C:/MinGW/include/assert.h \
+  ../inc/Person.h
 
 
 C:/MinGW/include/winnetwk.h:
@@ -231,3 +232,5 @@ C:/MinGW/include/oleidl.h:
 C:/MinGW/include/math.h:
 
 C:/MinGW/include/assert.h:
+
+../inc/Person.h:

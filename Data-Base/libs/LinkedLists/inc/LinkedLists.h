@@ -44,16 +44,15 @@
  * @brief Doubly Linked List Node Main Parameters 
  *
 */
+#pragma pack(1) /** @note packing set to 1 byte*/
 struct dllNode
 {
-    /** @defgroup Node Variables */
+    /** @defgroup Data */
+    struct PersonData *personData;
 
+    /** @defgroup Node Variables */
     struct dllNode *dllNodeNext;
     struct dllNode *dllNodePrev;
-
-    /** @defgroup Data */
-
-    struct PersonData *personData;
 };
 
 /* 

@@ -40,4 +40,5 @@ CMakeFiles/LinkedLists_lib.dir/src/LinkedLists.c.obj: \
  c:\mingw\include\objidl.h c:\mingw\include\cguid.h \
  c:\mingw\include\olectlid.h c:\mingw\include\oleauto.h \
  c:\mingw\include\oaidl.h c:\mingw\include\oleidl.h \
- c:\mingw\include\math.h c:\mingw\include\assert.h
+ c:\mingw\include\math.h c:\mingw\include\assert.h \
+ h:\wx_career\projects\database_project\libs\linkedlists\inc\person.h
