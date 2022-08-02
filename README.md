@@ -2,7 +2,7 @@
 ___
 
 ## Overview 
-This library is for basic generic data base
+This library is for basic generic data base 100% C Language.
 
 ### About Project
   * Memory management.
@@ -47,7 +47,7 @@ Algorithms is buildtas generic indebendent library in this project.
  | Doubly Linked List    | Y |
  | Linear Standard Queue | X |
  | Linear Priority Queue | X |
- | Linear Standard Queue | X |
+ | Linear Standard Stack | X |
  | Standard Tree         | X |
  | Standard Tree         | X |
  | Binary Tree           | X |
