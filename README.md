@@ -16,8 +16,8 @@ ___
 ## Technicalities 
 All about software
 
-### Data Structures
-Data structured is built as generic indebendent library in this project.
+### Libraries
+Libraries are built as generic indebendent library in this project.
 
 * Data structure:
   * Doubly Linked Lists.   
@@ -27,16 +27,13 @@ Data structured is built as generic indebendent library in this project.
   * Standard Tree. 
   * Binary Tree.
 
-### Algorithms
-Algorithms is buildtas generic indebendent library in this project.
-
 * Algorithms:
-    * Sorting:
-        * Merge Sort.
-    * Searching:
-        * Linear Search.
-        * Binary Search.  
-        * BT Search.
+  * Sorting:
+      * Merge Sort.
+  * Searching:
+      * Linear Search.
+      * Binary Search.  
+      * BT Search.
  
 ## Project in Action.
 
