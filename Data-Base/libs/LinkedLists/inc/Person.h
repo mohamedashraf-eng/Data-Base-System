@@ -19,7 +19,7 @@
 */
 
 #include "..\..\..\inc\Global.h"
-#include "..\inc\Person.h"
+
 /* 
 --------------------------------------------------------------------------------------------------
 !-                                     MACROS DECLARED                                           -
@@ -40,20 +40,40 @@
 --------------------------------------------------------------------------------------------------
 */
 
-/** 
- * @brief Doubly Linked List Node Main Parameters 
+/**
+ * @brief Struct containg the data that will be stored in data base.
  *
 */
-struct dllNode
-{
-    /** @defgroup Node Variables */
+struct PersonData
+{   
+    /** @defgroup System Variables */
+    /** @brief Parsed as numerical */
 
-    struct dllNode *dllNodeNext;
-    struct dllNode *dllNodePrev;
+    const uint64_t SystemID;
+    const uint32_t SystemSalt;
+    
+    /** @defgroup Person Variables */
+    /** @brief Parsed as string */
 
-    /** @defgroup Data */
+    const uint8_t *PersonFirstName;
+    const uint8_t *PersonLastName;
+    const uint8_t *PersonAge;
+    const uint8_t *PersonEmail;
+    const uint8_t *PersonPassword;
+    const uint8_t *PersonPhoneNumber;
+    const uint8_t *PersonJobTitle;
+    const uint8_t *PersonSalary;
+    const uint8_t *PersonWorkHours;
 
-    struct PersonData *personData;
+
+    /** @todo ADD THINGS */
+    /** @defgroup SPR Variables */
+    /** @brief Parsed as numerical */ /** @note True/False */
+
+    //const uint8_t *NoSalary;
+    //const uint8_t *NoGifts;
+
+
 };
 
 /* 
@@ -61,13 +81,3 @@ struct dllNode
 !-                                     FUNCTIONS DECLARATION                                     -
 --------------------------------------------------------------------------------------------------
 */
-
-/** @defgroup main functions */
-struct dllNode *dllNode_Create(struct PersonData *);
-
-/** @defgroup insertion functions */
-const uint16_t dllNode_Append(struct dllNode **, struct PersonData *);
-const uint16_t dllNode_Push(struct dllNode **, struct PersonData *);
-
-/** @defgroup private functions */
-static const uint16_t dllNode_validity(void *);
