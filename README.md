@@ -38,29 +38,27 @@ Algorithms is buildtas generic indebendent library in this project.
         * Binary Search.  
         * BT Search.
  
- ## Project in Action.
+## Project in Action.
 
- - Data Structures
+- Data Structures
+
+- [x] Doubly Linked Lists
+- [ ] Linear Standard Queue
+- [ ] Linear Priority Queue
+- [ ] Linear Standard Stack
+- [ ] Standard Tree.
+- [ ] Binary Tree
   
- | Name | Done |
- |------|------|
- | Doubly Linked List    | Y |
- | Linear Standard Queue | X |
- | Linear Priority Queue | X |
- | Linear Standard Stack | X |
- | Standard Tree         | X |
- | Standard Tree         | X |
- | Binary Tree           | X |
-
 - Algorithms
-  
- | Name | Done |
- |------|------|
- | Merge Sort         | X |
- | Linear Search      | X |
- | Binary Search      | X |
- | BT Search          | X |
-
+- 
+* Sorting:
+ - [ ] Merge Sort
+* Searching:
+ - [ ] Linear Search
+ - [ ] Binary Search
+ - [ ] BT Search
+ 
+ 
 ___
 
 * Authours:
