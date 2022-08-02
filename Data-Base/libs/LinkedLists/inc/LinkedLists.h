@@ -47,7 +47,7 @@
 struct PersonData
 {   
     /** @defgroup System Variables */
-    /** @brief Parsed as string */
+    /** @brief Parsed as numerical */
 
     const uint64_t SystemID;
     const uint32_t SystemSalt;
@@ -64,6 +64,16 @@ struct PersonData
     const uint8_t *PersonJobTitle;
     const uint8_t *PersonSalary;
     const uint8_t *PersonWorkHours;
+
+
+    /** @todo ADD THINGS */
+    /** @defgroup SPR Variables */
+    /** @brief Parsed as numerical */ /** @note True/False */
+
+    //const uint8_t *NoSalary;
+    //const uint8_t *NoGifts;
+
+
 };
 
 /** 

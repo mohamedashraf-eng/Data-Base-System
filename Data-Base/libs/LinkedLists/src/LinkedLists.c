@@ -83,7 +83,8 @@ const uint16_t dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *D
     /* Make sure the list isn't empty */
     if( !(dllNode_validity(*dllNodeHead)) )
     {
-        /* Error Handler Technique */
+        /* Error Handler Function */
+        /** @todo TO BE CHANGED */
         exit(-1);  /* Exit For Now */
     }
     else; /* Keep going (Do Nothing) */
@@ -107,7 +108,7 @@ const uint16_t dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *D
     dllNodeNew->dllNodePrev  = dllNodeTemp; // PrevPtr => PrevNode.
 
     /* Return RET_CODE */
-    return 1;
+    return 1;  /** @todo ADD ERROR_CODE */
 }/** @end dllNode_Append */
 
 /**
@@ -118,9 +119,31 @@ const uint16_t dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *D
 */
 const uint16_t dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Data)
 {
+    /* Checking the passed list's head */
+    /* Make sure the list isn't empty */
+    if( !(dllNode_validity(*dllNodeHead)) )
+    {
+        /* Error Handler Function */
+        /** @todo TO BE CHANGED */
+        exit(-1);  /* Exit For Now */
+    }
+    else; /* Keep going (Do Nothing) */
+
+    /* Check the data if valid */
+    dma_validity(Data); /** @note TO BE CHANGED */
+
+    /* Allocting memory for the new node*/
+    struct dllNode *dllNodeNew = dllNode_Create(Data);
     
+    /* Link the new node with the list */
+    dllNodeNew->dllNodeNext = (*dllNodeHead); // New Node point the previous first node.
+    
+    (*dllNodeHead)->dllNodePrev = dllNodeNew; // Previous first node point the new first node (The new Node)
 
+    (*dllNodeHead) = dllNodeNew; // Make the new node as new head node.
 
+    /* Return RET_CODE */
+    return 1;  /** @todo ADD ERROR_CODE */
 }/** @end dllNode_Push */
 
 
@@ -135,14 +158,14 @@ const uint16_t dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Dat
     /* Check the pointer */
     if( (dllNode_pointer == NULL) )
     {
+        /** @todo TO BE CHANGED */
         /* For now */
-        
         /* Return specific ERROR_CODE*/
-        return 0;
+        return 0; /** @todo ADD ERROR_CODE */
         
     }
     else
     {
-        return 1;
+        return 1; /** @todo ADD ERROR_CODE */
     }
  } /** @end dllNode_validity */
