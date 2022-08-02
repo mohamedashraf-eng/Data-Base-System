@@ -62,6 +62,7 @@ Algorithms is buildtas generic indebendent library in this project.
  | BT Search          | X |
 
 ___
-Authours
-[Mohamed Ashraf](https://www.linkedin.com/in/mohamed-ashraf-wx/)
-[Abdelrahman Belkasy](https://www.linkedin.com/in/abdelrahman-belkasy-686a021b6/)
+
+* Authours:
+ * [Mohamed Ashraf](https://www.linkedin.com/in/mohamed-ashraf-wx/)
+ * [Abdelrahman Belkasy](https://www.linkedin.com/in/abdelrahman-belkasy-686a021b6/)
