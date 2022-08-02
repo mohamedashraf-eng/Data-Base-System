@@ -20,6 +20,8 @@
 
 #include "..\..\..\inc\Global.h"
 #include "..\inc\Person.h"
+#include "..\..\inc\ErrorHandler.h"
+
 /* 
 --------------------------------------------------------------------------------------------------
 !-                                     MACROS DECLARED                                           -
@@ -65,8 +67,9 @@ struct dllNode
 struct dllNode *dllNode_Create(struct PersonData *);
 
 /** @defgroup insertion functions */
-const uint16_t dllNode_Append(struct dllNode **, struct PersonData *);
-const uint16_t dllNode_Push(struct dllNode **, struct PersonData *);
+error_type dllNode_Append(struct dllNode **, struct PersonData *);
+error_type dllNode_Push(struct dllNode **, struct PersonData *);
 
 /** @defgroup private functions */
-static const uint16_t dllNode_validity(void *);
+static error_type dllNode_validity(void *);
+static error_type dll_Print(struct dllNode *);

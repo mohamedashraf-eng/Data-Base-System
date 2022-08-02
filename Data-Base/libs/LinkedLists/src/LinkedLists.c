@@ -75,9 +75,9 @@ struct dllNode *dllNode_Create(struct PersonData *Data)
  * @brief Function to insert at last of list.
  * @param PersonData*   (Data to be added to the new node)
  * @param dllNode*      (Head of the list)
- * @return uint16_t     (Reutrning an error code)
+ * @return error_type   (Reutrning an error code)
 */
-const uint16_t dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *Data)
+error_type dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *Data)
 {
     /* Checking the passed list's head */
     /* Make sure the list isn't empty */
@@ -115,9 +115,9 @@ const uint16_t dllNode_Append(struct dllNode **dllNodeHead, struct PersonData *D
  * @brief Function to insert at start of list.
  * @param PersonData*   (Data to be added to the new node)
  * @param dllNode*      (Head of the list)
- * @return uint16_t     (Reutrning an error code)
+ * @return error_type   (Reutrning an error code)
 */
-const uint16_t dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Data)
+error_type dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Data)
 {
     /* Checking the passed list's head */
     /* Make sure the list isn't empty */
@@ -151,9 +151,9 @@ const uint16_t dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Dat
 /**
  * @brief Function to check the validity of passed pointer
  * @param dllNode_pointer.
- * @return error code indicates the state.
+ * @return error_type indicates the state.
 */
- static const uint16_t dllNode_validity(void *dllNode_pointer)
+ static error_type dllNode_validity(void *dllNode_pointer)
  {
     /* Check the pointer */
     if( (dllNode_pointer == NULL) )
