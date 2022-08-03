@@ -9,7 +9,10 @@
  * 
  */
 
-#include "Global.h"
+#include "inc/Global.h"
+
+/** @note testing */
+struct dllFunctions dll = {.create = &dllNode_Create, .append = &dllNode_Append, .push = &dllNode_Push};
 
 
 /**
@@ -19,11 +22,14 @@
  */
 int main(void)
 {
+    struct PersonData person = {.SystemID = 1332};
 
+    struct dllNode *list = dllNode_Create(&person);
 
+    dll.append(&list, &person);
 
-    printf("\n Hello Project! \n");
+    printf("\n Data: %d", list->personData->SystemID);
 
-
+    
     return 0;
 }
