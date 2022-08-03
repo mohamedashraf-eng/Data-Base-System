@@ -25,7 +25,7 @@
 #include <math.h>
 #include <assert.h>
 
-/** @defgroup standard include */
+/** @defgroup user include */
 #include "../libs/LinkedLists/inc/LinkedLists.h"
 #include "../libs/Queue/inc/Queue.h"
 #include "../libs/Stack/inc/Stack.h"
