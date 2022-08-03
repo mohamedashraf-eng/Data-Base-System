@@ -15,6 +15,7 @@
 --------------------------------------------------------------------------------------------------
 */
 
+/** @defgroup standard include */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -23,6 +24,15 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
+
+/** @defgroup standard include */
+#include "../libs/LinkedLists/inc/LinkedLists.h"
+#include "../libs/Queue/inc/Queue.h"
+#include "../libs/Stack/inc/Stack.h"
+#include "../libs/Logs/inc/Logs.h"
+#include "../libs/Hashing/inc/Hashing.h"
+#include "../libs/Stringer/inc/Stringer.h"
+#include "../libs/UserInterface/inc/UserInterface.h"
 
 /* 
 --------------------------------------------------------------------------------------------------
@@ -65,5 +75,4 @@
 
 /** @defgroup global functions */
 void dma_validity(void *);
-
 
