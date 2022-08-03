@@ -18,9 +18,9 @@
 --------------------------------------------------------------------------------------------------
 */
 
-#include "..\..\..\inc\Global.h"
-#include "..\inc\Person.h"
-#include "..\..\inc\ErrorHandler.h"
+#include "..\..\..\Assets\inc\ErrorHandler.h"
+#include "..\..\..\Assets\inc\STDLIBs.h"
+#include "Person.h"
 
 /* 
 --------------------------------------------------------------------------------------------------
@@ -57,25 +57,6 @@ struct dllNode
     struct dllNode *dllNodePrev;
 };
 
-
-/** 
- * @brief Doubly Linked List Functions
- *
-*/
-#pragma pack(1) /** @note packing set to 1 byte*/
-struct dllFunctions
-{
-    /** @defgroup main functions */
-    struct dllNode* (*create) (struct PersonData *);
-
-    /** @defgroup insertion functions */
-    error_type (*append) (struct dllNode **, struct PersonData *);
-    error_type (*push)   (struct dllNode **, struct PersonData *);
-}dllFunctions;
-
-struct dllFunctions dll;
-
-
 /* 
 --------------------------------------------------------------------------------------------------
 !-                                     FUNCTIONS DECLARATION                                     -
@@ -92,5 +73,3 @@ error_type dllNode_Push(struct dllNode **, struct PersonData *);
 /** @defgroup private functions */
 static error_type dllNode_validity(void *);
 static error_type dll_Print(struct dllNode *);
-
-

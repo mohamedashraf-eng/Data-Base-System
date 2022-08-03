@@ -18,8 +18,9 @@
 --------------------------------------------------------------------------------------------------
 */
 
-#include "..\..\..\inc\Global.h"
-#include "..\..\inc\ErrorHandler.h"
+#include "..\..\..\Assets\inc\ErrorHandler.h"
+#include "..\..\..\Assets\inc\STDLIBs.h"
+#include "..\..\Linkedlists\inc\Linkedlists.h"
 
 /* 
 --------------------------------------------------------------------------------------------------
@@ -42,6 +43,12 @@
 --------------------------------------------------------------------------------------------------
 */
 
+
+/** 
+ * @brief Struct for queue.
+ *
+*/
+#pragma pack(1) /** @note packing set to 1 byte*/
 struct Queue
 {
     /** @defgroup Queue aramaters */
@@ -58,11 +65,11 @@ struct Queue
 
 /** @defgroup main functions */
 struct Queue *Queue_Create(void);
-void Queue_Destroy(struct Queue *);
+void Queue_Destroy(struct Queue *); /** @todo IMPLEMENT */
 
 /** @defgroup insertion functions */
 error_type Queue_enqueue(struct Queue *, struct PersonData *);
-struct PersonData *Queue_dequeue(struct Queue *);
+error_type Queue_dequeue(struct Queue *);
  
 
 /** @defgroup sub functions */

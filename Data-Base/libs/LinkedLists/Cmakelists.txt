@@ -5,7 +5,8 @@ project(LinkedLists)
 
 add_library(LinkedLists_lib
            src/LinkedLists.c
-           inc/LinkedLists.h)
+           inc/LinkedLists.h
+           inc/Person.h)
            
 ## Library Validity.
 message(STATUS "ADDED LinkedLists.lib")

@@ -54,7 +54,8 @@ struct Queue *Queue_Create(void)
 {
     /* Create the heap memory for the queue struct */
     struct Queue *NewQueue = (struct Queue *) malloc(sizeof(struct Queue));
-
+    /** @todo ADD DMA VALIDITY */
+    
     /* Initalize queue parameters */
     NewQueue->Front = NULL;
     NewQueue->Rear = NULL;
@@ -71,7 +72,7 @@ struct Queue *Queue_Create(void)
 */
 void Queue_Destroy(struct Queue *queue)
 {
-    
+    /** @todo IMPLEMENT */
 
 } /** @end Queue_Destroy*/
 
@@ -127,12 +128,47 @@ error_type Queue_enqueue(struct Queue *queue, struct PersonData *data)
 /**
  * @brief Function
  * @param Queue
- * @return
+ * @return error_type
 */
-struct PersonData *Queue_dequeue(struct Queue *queue)
+error_type Queue_dequeue(struct Queue *queue)
 {
+    /* Error handling */
+    if( !(Queue_Validity) )
+    {
+        /* RET_TYPE */
+        exit(-1); /** @todo ADD ERROR_CODE */
+    }   
+    else;
 
+    /* Check wether the queue is empty or not */
+    if ( (Queue_IsEmpty) ) /* If queue is empty*/
+    {
+        /* RET_TYPE */
+        return 0; /** @todo ADD ERROR_CODE */
+    }    
+    else     /* If queue isn't empty */
+    {
+        /* Temp variable to store the current front */
+        struct dllNode *temp = queue->Front; 
+        
+        /* Move the front to the next node */
+        queue->Front = queue->Front->dllNodeNext;
 
+        /* Check if the queue is now empty */
+        if( (queue == NULL) )
+        {
+            /* Set the rear to NULL */
+            queue->Rear = NULL;
+        }
+
+        /* Free the dequeued node */
+        free(temp);
+
+        queue->QueueSize -= 1; /* Decrease size by one */
+
+        /* RET_TYPE */
+        return 1; /** @todo ADD ERROR_CODE */
+    }  
 }/** @end Queue_dequeue */
 
 /** @defgroup sub functions */
@@ -145,7 +181,7 @@ static struct dllNode *Queue_Front(struct Queue *queue)
 {
     Queue_Validity(queue);
 
-    return (queue->front);
+    return (queue->Front);
 }/** @end Queue_Front*/
 
 /**
@@ -169,7 +205,7 @@ static uint32_t Queue_Size(struct Queue *queue)
 /**
  * @brief Function to check wether queue is empty or not.
  * @param Queue struct
- * @return boolean value.
+ * @return boolean value. 
 */
 static error_type Queue_IsEmpty(struct Queue *queue)
 {

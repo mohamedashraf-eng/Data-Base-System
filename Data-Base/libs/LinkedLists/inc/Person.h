@@ -18,7 +18,8 @@
 --------------------------------------------------------------------------------------------------
 */
 
-#include "..\..\..\inc\Global.h"
+#include "..\..\..\Assets\inc\ErrorHandler.h"
+#include "..\..\..\Assets\inc\STDLIBs.h"
 
 /* 
 --------------------------------------------------------------------------------------------------
@@ -49,7 +50,7 @@ struct PersonData
 {   
     /** @defgroup System Variables */
     /** @brief Parsed as numerical */
-    const uint64_t SystemID;
+    const uint32_t SystemID;
     const uint32_t SystemSalt;
     
     /** @defgroup Person Variables */

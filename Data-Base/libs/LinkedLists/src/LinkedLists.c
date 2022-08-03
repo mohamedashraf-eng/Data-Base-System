@@ -67,7 +67,6 @@ struct dllNode *dllNode_Create(struct PersonData *Data)
     
     /* Return the created node address */
     return dllNodeNew;
-
 } /** @end dllNode_Create */
 
 /** @defgroup insertion functions */
@@ -169,3 +168,32 @@ error_type dllNode_Push(struct dllNode **dllNodeHead, struct PersonData *Data)
         return 1; /** @todo ADD ERROR_CODE */
     }
  } /** @end dllNode_validity */
+
+ /**
+ * @brief Function print the passed linked list.
+ * @param dllNode_pointer.
+ * @return error_type indicates the state.
+*/
+error_type dll_Print(struct dllNode *dllHead)
+{
+    /* Checking the passed list's head */
+    /* Make sure the list isn't empty */
+     if( !(dllNode_validity(dllHead)) )
+    {
+        /* Error Handler Function */
+        /** @todo TO BE CHANGED */
+        exit(-1);  /* Exit For Now */
+    }
+    else; /* Keep going (Do Nothing) */
+    
+    /* Iterating through the list */
+    while( (dllHead != NULL) )
+    {   
+        /** @note Printing only Person SystemID to validate the list */
+        printf("\n %d", dllHead->personData->SystemID); 
+        dllHead = dllHead->dllNodeNext;
+    }
+
+    /* RET_TYPE */
+    return 1;
+} /** @end dll_Print */
