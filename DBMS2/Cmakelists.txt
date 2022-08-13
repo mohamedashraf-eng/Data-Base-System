@@ -1,0 +1,34 @@
+cmake_minimum_required(VERSION 3.21)
+
+## Set Project Name.
+project(DBMS)
+
+## Set the C standard requirements.
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED True)
+# Print the C_STD, C_STD_STATE:
+message(STATUS "C Standard: ${CMAKE_C_STANDARD}")
+message(STATUS "C Standard: ${CMAKE_C_STANDARD_REQUIRED}")
+
+## Print current source directory. 
+message("Current source directory: " ${CMAKE_SOURCE_DIR})
+
+## Set Inluded Source Files.
+set(SRC_FILES 
+    src/global.c
+    main.c)
+
+# Print Included source files.
+message(STATUS "Included Source Files: " ${SRC_FILES})
+
+## Checkinf for main.c
+if(EXISTS ${CMAKE_SOURCE_DIR}/main.c)
+    message("main.c exists")
+else()
+    message(FATAL_ERROR "main.c doesn't exist")
+endif()
+
+## Set Exe File.
+add_executable(output ${SRC_FILES})
+
+target_include_directories(output PUBLIC inc/)
