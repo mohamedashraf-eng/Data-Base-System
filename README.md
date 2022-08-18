@@ -16,7 +16,7 @@ ___
 ## Technicalities 
 All about software
 ### Static Architecture
-![DBMS_ARCHITECTURE](https://drive.google.com/file/d/1Axuvy_UxtMrrn4islz1ScCJCQwt7cUyb/view?usp=sharing)
+![DBMS_ARCHITECTURE]([https://drive.google.com/file/d/1Axuvy_UxtMrrn4islz1ScCJCQwt7cUyb/view?usp=sharing](https://h.top4top.io/p_2421apxda1.png))
 
 ### Libraries
 Libraries are built as generic indebendent library in this project.
