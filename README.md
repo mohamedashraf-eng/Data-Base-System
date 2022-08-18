@@ -15,6 +15,8 @@ ___
 
 ## Technicalities 
 All about software
+### Static Architecture
+![Alt text](hhttps://drive.google.com/file/d/1Axuvy_UxtMrrn4islz1ScCJCQwt7cUyb/view?usp=sharing "DBMS")
 
 ### Libraries
 Libraries are built as generic indebendent library in this project.
@@ -39,9 +41,9 @@ Libraries are built as generic indebendent library in this project.
 
 * Data Structures:
    - [x] Doubly Linked Lists
-   - [ ] Linear Standard Queue
+   - [x] Linear Standard Queue
    - [ ] Linear Priority Queue
-   - [ ] Linear Standard Stack
+   - [x] Linear Standard Stack
    - [ ] Standard Tree.
    - [ ] Binary Tree
 
@@ -50,7 +52,7 @@ Libraries are built as generic indebendent library in this project.
     - [ ] Merge Sort
  * Searching:
     - [ ] Linear Search
-    - [ ] Binary Search
+    - [x] Binary Search
     - [ ] BT Search
  
  
