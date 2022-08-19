@@ -96,7 +96,8 @@ struct person
     /** @todo ADD THINGS */
     /** @defgroup Person Flag Variables */
     /** @brief Parsed as numerical */ /** @note True/False */
-    uint8_t Doctor_Reserved;
+    uint8_t FLAG_Doctor_Reserved;
+    uint8_t reserved_slot;
 
 }; typedef struct person person_t;
 
@@ -234,6 +235,10 @@ static uint8_t queue_isempty(struct queue *);
 /** @defgroup main functions */
 error_t list_append(list_t *, data_t *);
 error_t list_push(list_t *, data_t *);
+//error_t list_remove_last(list_t *);
+//error_t list_remove_first(list_t *);
+error_t list_remove_node(list_t *, uint32_t);
+
 //error_t list_removefirst(list_t *);
 //error_t list_removelast(list_t *);
 
@@ -282,8 +287,15 @@ static uint32_t digit_folding(data_t *);
 --------------------------------------------------------------------------------------------------
 */
 
-#define MAX_INPUT_SIZE ((const uint8_t ) (100))
-#define ADMIN_PW ((const uint32_t) (1234))
+#define MAX_INPUT_SIZE ( (const uint8_t ) (100)  )
+#define ADMIN_PW       ( (const uint32_t) (1234) )
+#define NUM_OF_SLOTS   ( (const uint32_t) (5) )
+
+#define SLOT_1 "2:00 PM to 2:30 PM"
+#define SLOT_2 "2:30 PM to 3:00 PM"
+#define SLOT_3 "3:00 PM to 3:30 PM"
+#define SLOT_4 "4:00 PM to 4:30 PM"
+#define SLOT_5 "4:30 PM to 5:00 PM"
 
 /** @defgroup main functions */
 error_t  user_gui(void);

@@ -655,6 +655,56 @@ error_t list_push(list_t *mylist, data_t *mydata)
     return SUCCESS;
 }/** @end list_push */
 
+/**
+ * @brief Function to remove specific node in a list.
+ *
+ * @param
+ *
+ * @return     The error.
+ */
+error_t list_remove_node(list_t *mylist, uint32_t sysid)
+{
+    /* Error handler */
+    method_validity(mylist);
+
+    if( (list_isempty(mylist)) )
+    {
+        return FAILURE;
+    }
+    else;
+
+    /* Iterate till find the required sysid */
+    uint8_t found_flag = 0;
+    while( (mylist->head != NULL) )
+    {
+        if( (mylist->head->data->PersonData->SystemID == sysid) )
+        {
+            found_flag = 1;
+            break;
+        }
+        else;
+
+        mylist->head = mylist->head->next;
+    }
+
+    if( (found_flag) )
+    {
+        node_t *temp = mylist->head;
+
+        /* Exhange the linkage */
+        mylist->head->previous->next = mylist->head->next;
+        mylist->head->next->previous = mylist->head->previous;
+
+        /* Free the node */
+        free(temp);
+        return SUCCESS;
+    }
+    else
+    {
+        return FAILURE;
+    }
+}/** @end list_remove_node */
+
 /** @defgroup sub functions */
 
 /**
@@ -798,7 +848,7 @@ static person_t *hashlist_search(hash_t *hashtable)
 
     printf("\n Enter System ID, System Salt");
     printf("\n [>]: "); scanf("%d", &SystemID);
-    printf(" [>]: "); scanf("%d", &SystemSalt);
+    printf(" [>]: ");   scanf("%d", &SystemSalt);
 
     /* Get the list number */
     const uint16_t hash = division_method(SystemSalt);
@@ -1205,11 +1255,11 @@ static error_t menu_user(hash_t *hashtable)
         switch(mode_select)
         {
             /* View patient record.*/
-            case '1':   /** @todo build the mechanism */
+            case '1':   patient_record(hashtable);
                         break;
 
             /* View today's reservation */
-            case '2':   /** @todo build the mechanism */
+            case '2':   patient_reservations(hashtable);
                         break;
 
             default:
@@ -1296,7 +1346,14 @@ static error_t patient_edit(hash_t *hashtable)
         printf("\t |***********************************************************************|\n");
 
         person_t *patient_to_edit = hashlist_search(hashtable);
-        
+        if( (patient_to_edit == NULL) )
+        {
+            printf("\n patient not found.");
+            sleep(1);
+            return FAILURE;
+        }
+        else;
+
         char switch_mode = 0;
 
         if( (patient_to_edit == NULL) )
@@ -1415,7 +1472,60 @@ static error_t patient_reserve(hash_t *hashtable)
     printf("\t |*                           PATIENT RESERVE                           *|\n");
     printf("\t |***********************************************************************|\n");
 
+    person_t *patient_to_edit = hashlist_search(hashtable);
+    if( (patient_to_edit == NULL) )
+    {
+        printf("\n patient not found.");
+        sleep(1);
+        return FAILURE;
+    }
+    else;
 
+    /* Avaliable slots */
+    const char *slots_lookuptable[NUM_OF_SLOTS] = {SLOT_1, SLOT_2, SLOT_3, SLOT_4, SLOT_5};
+    static uint8_t slots_flag[NUM_OF_SLOTS] = {0,0,0,0,0};
+
+    uint32_t user_input;
+    uint8_t counter = 0;
+
+    while(1)
+    {
+        system("cls");
+
+        printf("\n The available slots: ");
+
+        uint8_t i;
+        for(i = 0; i < NUM_OF_SLOTS; i++)
+        {
+            printf("\n %d. %s", counter++, slots_lookuptable[i]);
+
+            if( (slots_flag[i]) )
+            {
+                printf("\t X");
+            }
+            else;
+        }
+        printf("\n [>]: "); scanf("%d", &user_input);
+
+       if( !(slots_flag[user_input]) )
+        {
+            slots_flag[user_input] = 1;
+
+            patient_to_edit->reserved_slot = user_input;
+            patient_to_edit->FLAG_Doctor_Reserved = 1;
+
+            printf("\n Reservation done.");
+            sleep(1);
+
+            return SUCCESS;
+        }
+        else
+        {
+            printf("\n Invalid slot.");
+            sleep(1);
+            return FAILURE;
+        }
+    }
 }/** @end patient_reserve */
 
 /**
@@ -1431,10 +1541,24 @@ static error_t patient_cancel(hash_t *hashtable)
     system("cls");
 
     printf("\t |***********************************************************************|\n");
-    printf("\t |*                           PATIENT CANCEL                            *|\n");
+    printf("\t |*                       PATIENT RESERVATION CANCEL                    *|\n");
     printf("\t |***********************************************************************|\n");
 
+    person_t *patient_to_edit = hashlist_search(hashtable);
+    if( (patient_to_edit == NULL) )
+    {
+        printf("\n patient not found.");
+        sleep(1);
+        return FAILURE;
+    }
+    else;
 
+    patient_to_edit->FLAG_Doctor_Reserved = 0;
+
+    printf("\n Reservation canceling done.");
+    sleep(1);
+
+    return SUCCESS;
 }/** @end patient_cancel */
 
 /**
@@ -1453,8 +1577,36 @@ static error_t patient_record(hash_t *hashtable)
     printf("\t |*                           PATIENT RECORD                            *|\n");
     printf("\t |***********************************************************************|\n");
 
+    uint32_t counter = 0;
+    uint32_t patient_counter = 0;
 
+    while(counter < 20)
+    {
+        while(hashtable->list_table[counter]->head != NULL)
+        {
+            person_t *curent_person = hashtable->list_table[counter]->head->data->PersonData;
 
+            printf("\n [%d] Patient_ID: %d", patient_counter, curent_person->SystemID);
+            printf("\n [%d] Patient_FirstName: %s", patient_counter, curent_person->PersonFirstName);
+            printf("\n [%d] Patient_LastName: %s", patient_counter, curent_person->PersonLastName);
+            printf("\n [%d] Patient_Age: %s", patient_counter, curent_person->PersonAge);
+            printf("\n [%d] Patient_Email: %s", patient_counter, curent_person->PersonEmail);
+            printf("\n [%d] Patient_Password: %s", patient_counter, curent_person->PersonPassword);
+            printf("\n [%d] Patient_PhoneNumber: %s", patient_counter, curent_person->PersonPhoneNumber);
+            printf("\n [%d] Patient_JobTitle: %s", patient_counter, curent_person->PersonJobTitle);
+            printf("\n [%d] Patient_Salary: %s", patient_counter, curent_person->PersonSalary);
+            printf("\n [%d] Patient_WorkHours: %s", patient_counter, curent_person->PersonWorkHours);
+            printf("\n [%d] Patient_ReserveFlag: %d", patient_counter, curent_person->FLAG_Doctor_Reserved);
+            printf("\n [%d] Patient_Slot: %d", patient_counter, curent_person->PersonWorkHours);
+
+            patient_counter++;
+            hashtable->list_table[counter]->head = hashtable->list_table[counter]->head->next;
+        }
+        printf("\n");
+        counter++;
+    }
+
+    return SUCCESS;
 }/** @end patient_record */
 
 /**
@@ -1473,6 +1625,27 @@ static error_t patient_reservations(hash_t *hashtable)
     printf("\t |*                          PATIENT RESERVATIONS                       *|\n");
     printf("\t |***********************************************************************|\n");
 
+    uint32_t counter = 0;
 
+    printf("\n today's's reservations \n");
 
+    while(counter < hashtable->maxsize)
+    {
+        while(hashtable->list_table[counter]->head != NULL)
+        {
+            person_t *curent_person = hashtable->list_table[counter]->head->data->PersonData;
+
+            if( (curent_person->FLAG_Doctor_Reserved) )
+            {
+                printf("\n Person_SystemID: %d -- Reservation slot: %s", curent_person->SystemID,
+                                                                         curent_person->reserved_slot);
+
+                hashtable->list_table[counter]->head = hashtable->list_table[counter]->head->next;
+            }
+        }
+        printf("\n");
+        counter++;
+    }
+
+    return SUCCESS;
 }/** @end patient_reservations */
