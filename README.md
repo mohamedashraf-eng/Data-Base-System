@@ -55,8 +55,14 @@ Libraries are built as generic indebendent library in this project.
     - [x] Binary Search
     - [ ] BT Search
  
- 
-___
+* System:
+    - [x] gui menu
+    - [x] admin menu
+    - [x] user menu
+    - [x] adding data.
+    - [x] editing data.
+___ - [ ] system functionality.
+
 
 * Authours:
  * [Mohamed Ashraf](https://www.linkedin.com/in/mohamed-ashraf-wx/)
