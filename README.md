@@ -61,7 +61,8 @@ Libraries are built as generic indebendent library in this project.
     - [x] user menu
     - [x] adding data.
     - [x] editing data.
-___ - [ ] system functionality.
+    - [ ] system functionality.
+___ 
 
 
 * Authours:
